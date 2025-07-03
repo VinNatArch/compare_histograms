@@ -7,7 +7,6 @@ from glob import glob
 
 #map aangeven waar de inventarisnummers staan
 mappen = glob("D:/image_similarity/*/", recursive = True)
-print(mappen)
 
 #map aangeven waar de mogelijk dubbele scans naar verplaatst worden
 outputdir = "D:/possible_double_scan/"
