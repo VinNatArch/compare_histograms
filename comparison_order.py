@@ -62,14 +62,14 @@ def compare_function():
         if base_test1 > 0.999:
             shutil.copy(img_base, outputdir)
             shutil.copy(img_test1, outputdir)
-            print('The following images might be the same: ', img_base, ' and ', img_test1)
+            #print('The following images might be the same: ', img_base, ' and ', img_test1)
 
 for map in mappen:
     filelist = os.listdir(map)
     full_paths = [os.path.join(map, file) for file in os.listdir(map)]
     full_paths.sort()
-    #print('fullpath: ', full_paths)
-    for i in range(len(full_paths) - 1):
+    print(f"\nProcessing folder: {map}")
+    for i in tqdm(range(len(full_paths) - 1), delay=2, colour='green', mininterval=1):
         img_base = full_paths[i]
         src_base = cv.imread(full_paths[i])
         img_test1 = full_paths[i + 1]
@@ -80,6 +80,7 @@ for map in mappen:
             exit(0)
         else:
             compare_function()
+    print(f"Folder {map} is done.")
 
 
 
