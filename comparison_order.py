@@ -69,7 +69,7 @@ for map in mappen:
     full_paths = [os.path.join(map, file) for file in os.listdir(map)]
     full_paths.sort()
     print(f"\nProcessing folder: {map}")
-    for i in tqdm(range(len(full_paths) - 1), delay=2, colour='green', mininterval=1):
+    for i in tqdm.tqdm(range(len(full_paths) - 1), delay=2, colour='green', mininterval=1):
         img_base = full_paths[i]
         src_base = cv.imread(full_paths[i])
         img_test1 = full_paths[i + 1]
@@ -81,6 +81,7 @@ for map in mappen:
         else:
             compare_function()
     print(f"Folder {map} is done.")
+
 
 
 
